@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Neon Tic Tac Toe</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="apple-touch-icon" href="icon-192x192.png">
+    <!-- PeerJS for WebRTC Online Multiplayer -->
+    <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+</head>
+
+<body>
+    <div class="app-container">
+
+        <!-- Main Menu -->
+        <div id="menu-container" class="menu-container">
+            <h1 class="title main-title">Tic Tac Toe</h1>
+            <p class="subtitle">Select Game Mode</p>
+
+            <div class="menu-buttons">
+                <button class="menu-btn" id="btn-local">Pass & Play (Local)</button>
+                <button class="menu-btn" id="btn-ai">Play vs Computer</button>
+                <button class="menu-btn" id="btn-create-room">Create Online Room</button>
+                <div class="join-room-container">
+                    <input type="text" id="room-input" class="room-input" placeholder="Enter Room ID"
+                        autocomplete="off">
+                    <button class="menu-btn" id="btn-join-room">Join Room</button>
+                </div>
+            </div>
+            <div id="menu-status" class="menu-status"></div>
+        </div>
+
+        <!-- Game Board -->
+        <div id="game-container" class="game-container hidden">
+            <div class="game-header">
+                <button class="back-btn" id="btn-back">← Back</button>
+                <div class="room-display hidden" id="room-display">Room: <span id="room-id-display"></span></div>
+            </div>
+
+            <h1 class="title">Tic Tac Toe</h1>
+            <div class="status" id="status">Player <span class="player-x">X</span>'s Turn</div>
+
+            <div class="board" id="board">
+                <div class="cell" data-index="0"></div>
+                <div class="cell" data-index="1"></div>
+                <div class="cell" data-index="2"></div>
+                <div class="cell" data-index="3"></div>
+                <div class="cell" data-index="4"></div>
+                <div class="cell" data-index="5"></div>
+                <div class="cell" data-index="6"></div>
+                <div class="cell" data-index="7"></div>
+                <div class="cell" data-index="8"></div>
+            </div>
+
+            <button class="reset-btn" id="resetBtn">Restart Game</button>
+        </div>
+
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js').then(reg => {
+                    console.log('SW registered!', reg);
+                }).catch(err => console.log('SW registration failed', err));
+            });
+        }
+    </script>
+</body>
+
+</html>

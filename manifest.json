@@ -1,0 +1,16 @@
+{
+  "name": "Neon Tic Tac Toe",
+  "short_name": "TicTacToe",
+  "description": "A premium, neon-themed Tic Tac Toe game.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
